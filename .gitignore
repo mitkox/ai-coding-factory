@@ -1,0 +1,188 @@
+# AI Coding Factory - .gitignore
+
+# OpenCode
+.opencode/.cache/
+.opencode/node_modules/
+.opencode/package-lock.json
+
+# Environment files
+.env
+!.env.example
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Ww][Ii][Nn][Dd].ps1
+x64/
+x86/
+[Aa][Rr][Mm]
+[Ll]og/
+[Ll]ogs/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+!artifacts/traceability/
+!artifacts/traceability/**
+!artifacts/stories/
+!artifacts/stories/**
+!.opencode/templates/artifacts/
+!.opencode/templates/artifacts/**
+
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# StyleCop
+StyleCopReport.xml
+
+# Files built by Visual Studio
+*_i.cs
+*_p.cs
+*_h.cs
+*.ilk
+*.meta
+*.obj
+*.iobj
+*.pch
+*.pdb
+*.ipdb
+*.pgc
+*.rsp
+*.sbr
+*.tlb
+*.tli
+*.tmp
+*.tmp_proj
+*_wpftmp.csproj
+*.log
+*.vspscc
+*.vssscc
+.builds
+*.pidb
+*.svclog
+*.scc
+
+# Visual Studio profiler
+*.psess
+*.vsp
+*.vspx
+*.sap
+
+# Visual Studio cache/options directory
+.vs/
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Mono auto generated files
+mono_crash.*
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+build/
+bld/
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio 2015 cache/options directory
+.vs/
+
+# MSTest test Results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# NuGet Packages
+*.nupkg
+**/packages/*
+!**/packages/build/
+
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# StyleCop
+StyleCopReport.xml
+
+# Files built by Visual Studio
+*_i.cs
+*_p.cs
+*_h.cs
+*.ilk
+*.meta
+*.obj
+*.iobj
+*.pch
+*.pdb
+*.ipdb
+*.pgc
+*.rsp
+*.sbr
+*.tlb
+*.tli
+*.tmp
+*.tmp_proj
+*_wpftmp.csproj
+*.log
+*.vspscc
+*.vssscc
+.builds
+*.pidb
+*.svclog
+*.scc
+
+# Visual Studio profiler
+*.psess
+*.vsp
+*.vspx
+*.sap
+
+# Visual Studio cache/options directory
+.vs/
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Mono auto generated files
+mono_crash.*
+
+# Generated files on macOS
+.DS_Store
+
+# .NET and NuGet
+.dotnet/
+.nuget/
+
+# Allow committed artifact examples and templates
+!artifacts/
+artifacts/*
+!artifacts/traceability/
+!artifacts/traceability/**
+!artifacts/stories/
+!artifacts/stories/**
+!.opencode/templates/artifacts/
+!.opencode/templates/artifacts/**

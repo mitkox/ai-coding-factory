@@ -1,0 +1,10 @@
+# Docker compose and helper files
+docker-compose.yml
+docker-compose*.yml
+**/Dockerfile*
+
+# Build outputs
+**/bin/
+**/obj/
+**/TestResults/
+artifacts/

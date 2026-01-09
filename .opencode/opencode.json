@@ -1,0 +1,298 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": {
+    "default": "local-inference/GLM-4.7",
+    "reasoning": "local-inference/GLM-4.7"
+  },
+  "provider": {
+    "local-inference": {
+      "type": "openai-compatible",
+      "baseUrl": "http://localhost:8000/v1",
+      "apiKey": "local-inference-key",
+      "timeout": 120000
+    }
+  },
+  "permission": {
+    "bash": {
+      "git *": "allow",
+      "dotnet *": "allow",
+      "docker *": "ask",
+      "rg *": "allow",
+      "find *": "allow",
+      "sed *": "allow",
+      "mkdir *": "allow",
+      "ls *": "allow",
+      "cat *": "allow",
+      "*": "deny"
+    },
+    "edit": "ask",
+    "write": "ask"
+  },
+  "agent": {
+    "ideation": {
+      "mode": "primary",
+      "description": "Gathers requirements, creates user stories, defines architecture, implements Scrum practices",
+      "model": "local-inference/GLM-4.7",
+      "temperature": 0.7,
+      "tools": {
+        "write": true,
+        "edit": true,
+        "bash": false
+      },
+      "permission": {
+        "skill": {
+          "net-*": "allow",
+          "net-agile": "allow",
+          "net-scrum": "allow",
+          "*": "deny"
+        }
+      }
+    },
+    "prototype": {
+      "mode": "primary",
+      "description": "Creates rapid MVP prototypes with minimal architecture, follows Scrum story format",
+      "model": "local-inference/GLM-4.7",
+      "temperature": 0.3,
+      "tools": {
+        "write": true,
+        "edit": true,
+        "bash": true
+      },
+      "permission": {
+        "skill": {
+          "net-*": "allow",
+          "net-agile": "allow",
+          "net-scrum": "allow",
+          "*": "deny"
+        }
+      }
+    },
+    "poc": {
+      "mode": "primary",
+      "description": "Builds production-focused PoC with security, testing, and Scrum Definition of Done compliance",
+      "model": "local-inference/GLM-4.7",
+      "temperature": 0.2,
+      "tools": {
+        "write": true,
+        "edit": true,
+        "bash": true
+      },
+      "permission": {
+        "skill": {
+          "net-*": "allow",
+          "net-agile": "allow",
+          "net-scrum": "allow",
+          "*": "deny"
+        }
+      }
+    },
+    "pilot": {
+      "mode": "primary",
+      "description": "Creates production-ready code with testing, docs, CI/CD, and Scrum sprint readiness",
+      "model": "local-inference/GLM-4.7",
+      "temperature": 0.1,
+      "tools": {
+        "write": true,
+        "edit": true,
+        "bash": true
+      },
+      "permission": {
+        "skill": {
+          "net-*": "allow",
+          "net-agile": "allow",
+          "net-scrum": "allow",
+          "*": "deny"
+        }
+      }
+    },
+    "product": {
+      "mode": "primary",
+      "description": "Maintains, scales, monitors production applications, and conducts Scrum retrospectives",
+      "model": "local-inference/GLM-4.7",
+      "temperature": 0.1,
+      "tools": {
+        "write": true,
+        "edit": true,
+        "bash": true
+      },
+      "permission": {
+        "skill": {
+          "net-*": "allow",
+          "net-agile": "allow",
+          "net-scrum": "allow",
+          "*": "deny"
+        }
+      }
+    },
+    "product-owner": {
+      "mode": "primary",
+      "description": "Owns story IDs, backlog priorities, and acceptance criteria",
+      "model": "local-inference/GLM-4.7",
+      "temperature": 0.3,
+      "tools": {
+        "write": true,
+        "edit": true,
+        "bash": false
+      },
+      "permission": {
+        "skill": {
+          "net-agile": "allow",
+          "net-scrum": "allow",
+          "*": "deny"
+        }
+      }
+    },
+    "scrum-master": {
+      "mode": "primary",
+      "description": "Enforces DoR/DoD, flow, and traceability compliance",
+      "model": "local-inference/GLM-4.7",
+      "temperature": 0.2,
+      "tools": {
+        "write": true,
+        "edit": true,
+        "bash": false
+      },
+      "permission": {
+        "skill": {
+          "net-agile": "allow",
+          "net-scrum": "allow",
+          "*": "deny"
+        }
+      }
+    },
+    "developer": {
+      "mode": "primary",
+      "description": "Implements stories with tests, docs, and traceability",
+      "model": "local-inference/GLM-4.7",
+      "temperature": 0.2,
+      "tools": {
+        "write": true,
+        "edit": true,
+        "bash": true
+      },
+      "permission": {
+        "skill": {
+          "net-*": "allow",
+          "*": "deny"
+        }
+      }
+    },
+    "qa": {
+      "mode": "primary",
+      "description": "Ensures test linkage, coverage, and quality gates",
+      "model": "local-inference/GLM-4.7",
+      "temperature": 0.1,
+      "tools": {
+        "write": true,
+        "edit": true,
+        "bash": true
+      },
+      "permission": {
+        "skill": {
+          "net-testing": "allow",
+          "*": "deny"
+        }
+      }
+    },
+    "security": {
+      "mode": "primary",
+      "description": "Performs threat modeling and security review",
+      "model": "local-inference/GLM-4.7",
+      "temperature": 0.1,
+      "tools": {
+        "write": true,
+        "edit": true,
+        "bash": true
+      },
+      "permission": {
+        "skill": {
+          "net-*": "allow",
+          "*": "deny"
+        }
+      }
+    },
+    "devops": {
+      "mode": "primary",
+      "description": "Maintains CI/CD, releases, and deployment readiness",
+      "model": "local-inference/GLM-4.7",
+      "temperature": 0.1,
+      "tools": {
+        "write": true,
+        "edit": true,
+        "bash": true
+      },
+      "permission": {
+        "skill": {
+          "net-docker": "allow",
+          "net-github-actions": "allow",
+          "net-kubernetes": "allow",
+          "*": "deny"
+        }
+      }
+    }
+  },
+  "mcp": {
+    "github": {
+      "type": "remote",
+      "url": "https://mcp.github.com",
+      "enabled": false,
+      "oauth": {}
+    },
+    "azure-devops": {
+      "type": "remote",
+      "url": "https://your-azure-devops-mcp-endpoint",
+      "enabled": false,
+      "oauth": false,
+      "headers": {
+        "Authorization": "Basic {env:AZURE_DEVOPS_PAT}"
+      }
+    },
+    "sonarqube": {
+      "type": "remote",
+      "url": "https://your-sonarqube.com/mcp",
+      "enabled": false,
+      "oauth": false,
+      "headers": {
+        "Authorization": "Bearer {env:SONARQUBE_TOKEN}"
+      }
+    }
+  },
+  "plugin": [],
+  "rules": {
+    "net-security": [
+      "Always validate input parameters",
+      "Use parameterized queries to prevent SQL injection",
+      "Implement proper authentication and authorization",
+      "Never commit secrets to code",
+      "Use HTTPS for all API endpoints"
+    ],
+    "net-architecture": [
+      "Follow Clean Architecture principles",
+      "Separate concerns: API, Application, Domain, Infrastructure",
+      "Use dependency injection throughout",
+      "Implement repository pattern for data access",
+      "Use DTOs for API responses"
+    ],
+    "net-best-practices": [
+      "Use async/await for I/O operations",
+      "Implement proper exception handling",
+      "Add XML comments for public APIs",
+      "Use ILogger for logging, not Console.WriteLine",
+      "Follow C# naming conventions (PascalCase for public members)"
+    ],
+    "scrum": [
+      "Follow Scrum Guide principles and practices",
+      "Use INVEST criteria for user stories",
+      "Maintain single product backlog",
+      "Conduct daily standups, sprint reviews, and retrospectives",
+      "Implement Definition of Done and Ready",
+      "Track team velocity and metrics",
+      "Protect team scope from mid-sprint changes",
+      "Inspect and adapt process based on retrospectives"
+    ]
+  },
+  "share": "disabled",
+  "network": {
+    "proxy": null
+  }
+}

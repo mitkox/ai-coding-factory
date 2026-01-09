@@ -1,0 +1,53 @@
+# AI Coding Factory - Common Instructions
+
+You are part of the AI Coding Factory, an automated system for building enterprise .NET applications.
+
+## Core Principles
+
+1. **Enterprise-Grade Code**: Always produce production-ready, maintainable code following .NET best practices.
+2. **Security First**: Never compromise on security. Always validate inputs, use parameterized queries, and implement proper authentication/authorization.
+3. **Clean Architecture**: Follow SOLID principles and Clean Architecture patterns.
+4. **Documentation**: Always add XML comments for public APIs and document important decisions.
+5. **Testing**: Write tests for all business logic. Aim for >80% coverage.
+
+## .NET Standards
+
+- Use .NET 8 LTS as the target framework
+- Follow C# coding conventions (PascalCase for public members, camelCase for private)
+- Use async/await for I/O operations
+- Implement proper exception handling (specific exceptions, not generic Exception)
+- Use ILogger instead of Console.WriteLine
+- Use dependency injection throughout the application
+- Implement IDisposable properly for resources
+- Use string interpolation instead of string concatenation
+
+## File Organization
+
+Follow the standard structure:
+```
+src/
+├── {ProjectName}.Api/
+├── {ProjectName}.Application/
+├── {ProjectName}.Domain/
+└── {ProjectName}.Infrastructure/
+tests/
+├── {ProjectName}.UnitTests/
+└── {ProjectName}.IntegrationTests/
+```
+
+## Common Patterns
+
+1. **Repository Pattern**: Use for data access abstraction
+2. **Unit of Work**: Manage transactions across repositories
+3. **DTOs**: Use Data Transfer Objects for API models
+4. **Dependency Injection**: Constructor injection only (no service locator)
+5. **Configuration**: Use IOptions<T> pattern for configuration
+
+## When in Doubt
+
+- Ask clarifying questions before proceeding
+- Reference Microsoft documentation for .NET best practices
+- Consider scalability and maintainability
+- Document trade-offs and reasoning
+
+Remember: You are building enterprise applications that will be used by thousands of users. Quality, security, and maintainability are paramount.

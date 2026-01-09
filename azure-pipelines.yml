@@ -1,0 +1,46 @@
+trigger:
+  branches:
+    include:
+      - main
+
+pr:
+  branches:
+    include:
+      - main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+  - checkout: self
+
+  - task: UseDotNet@2
+    inputs:
+      packageType: sdk
+      version: 8.0.x
+
+  - task: UsePythonVersion@0
+    inputs:
+      versionSpec: 3.11
+
+  - script: |
+      chmod +x scripts/validate-project.sh
+      chmod +x scripts/validate-documentation.sh
+      chmod +x scripts/scaffold-and-verify.sh
+    displayName: "Make scripts executable"
+
+  - script: ./scripts/validate-project.sh
+    displayName: "Validate repository structure"
+
+  - script: ./scripts/validate-documentation.sh
+    displayName: "Validate documentation presence"
+
+  - script: |
+      python3 scripts/traceability/traceability.py validate \
+        --stories-dir artifacts/stories \
+        --tests-root templates/clean-architecture-solution/tests \
+        --commit-range "HEAD~20..HEAD"
+    displayName: "Traceability commit check"
+
+  - script: ./scripts/scaffold-and-verify.sh
+    displayName: "Scaffold and verify template"

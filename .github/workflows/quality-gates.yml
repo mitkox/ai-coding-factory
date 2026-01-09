@@ -1,0 +1,50 @@
+name: quality-gates
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  governance:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.11
+
+      - name: Make scripts executable
+        run: |
+          chmod +x scripts/validate-project.sh
+          chmod +x scripts/validate-documentation.sh
+          chmod +x scripts/scaffold-and-verify.sh
+
+      - name: Validate repository structure
+        run: ./scripts/validate-project.sh
+
+      - name: Validate documentation presence
+        run: ./scripts/validate-documentation.sh
+
+      - name: Traceability commit check
+        run: |
+          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+            git fetch origin "${{ github.base_ref }}" --depth=1
+            RANGE="origin/${{ github.base_ref }}..HEAD"
+          else
+            RANGE="${{ github.event.before }}..${{ github.sha }}"
+          fi
+          python3 scripts/traceability/traceability.py validate \
+            --stories-dir artifacts/stories \
+            --tests-root templates/clean-architecture-solution/tests \
+            --commit-range "$RANGE"
+
+      - name: Scaffold and verify template
+        run: ./scripts/scaffold-and-verify.sh

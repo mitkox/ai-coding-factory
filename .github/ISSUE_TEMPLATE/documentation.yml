@@ -1,0 +1,63 @@
+name: Documentation Issue
+description: Report missing, unclear, or incorrect documentation
+title: "[Docs]: "
+labels: ["documentation", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve our documentation!
+
+  - type: dropdown
+    id: doc-type
+    attributes:
+      label: Documentation Type
+      description: What type of documentation needs improvement?
+      options:
+        - README
+        - Agent Documentation
+        - Skill Documentation
+        - Template Documentation
+        - API Documentation
+        - Tutorial/Guide
+        - AGENTS.md
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: location
+    attributes:
+      label: Documentation Location
+      description: Where is the documentation issue located?
+      placeholder: |
+        File: README.md
+        Section: Quick Start
+        Line: 50-60
+    validations:
+      required: true
+
+  - type: textarea
+    id: issue
+    attributes:
+      label: Issue Description
+      description: What is wrong, unclear, or missing?
+      placeholder: The documentation says X but it should say Y because...
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggested Improvement
+      description: How should the documentation be improved?
+      placeholder: The documentation should include...
+
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Contribution
+      description: Are you willing to submit a PR to fix this?
+      options:
+        - label: I'm willing to update the documentation and submit a PR
+          required: false

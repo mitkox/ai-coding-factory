@@ -1,0 +1,7 @@
+# Update owners to match your org/team structure
+* @mitkox
+
+docs/ @mitkox
+templates/ @mitkox
+scripts/ @mitkox
+.opencode/ @mitkox

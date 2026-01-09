@@ -1,0 +1,94 @@
+name: Bug Report
+description: File a bug report to help us improve
+title: "[Bug]: "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report! Please provide as much detail as possible.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: A clear and concise description of what the bug is.
+      placeholder: Tell us what you see!
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to Reproduce
+      description: Steps to reproduce the behavior
+      placeholder: |
+        1. Go to '...'
+        2. Run command '....'
+        3. See error
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What did you expect to happen?
+      placeholder: Describe what should happen
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+      description: What actually happened?
+      placeholder: Describe what actually happened
+    validations:
+      required: true
+
+  - type: dropdown
+    id: agent
+    attributes:
+      label: Which Agent?
+      description: Which agent were you using when the bug occurred?
+      options:
+        - Ideation Agent
+        - Prototype Agent
+        - PoC Agent
+        - Pilot Agent
+        - Product Agent
+        - Security Auditor (subagent)
+        - Code Reviewer (subagent)
+        - Test Generator (subagent)
+        - Not applicable
+    validations:
+      required: false
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Please provide your environment details
+      value: |
+        - OS: [e.g., macOS 14.0, Ubuntu 22.04, Windows 11]
+        - .NET SDK Version: [e.g., 8.0.100]
+        - OpenCode Version: [e.g., 1.0.0]
+        - Local Inference: [e.g., vLLM, LM Studio]
+        - Model: [e.g., GLM-4.7]
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant Logs
+      description: Please paste any relevant log output
+      render: shell
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Add any other context about the problem here
+      placeholder: Screenshots, configuration files, etc.
