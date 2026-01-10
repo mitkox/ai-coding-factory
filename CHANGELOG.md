@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.0.2] - 2026-01-10
+
+### Added
+- Corporate R&D Development Policy with enforceable governance controls
+- Policy artifact validation script (`scripts/validate-rnd-policy.sh`)
+- Agent guardrails to enforce the Corporate R&D Policy across all roles
+
+### Changed
+- Documentation validation now includes the Corporate R&D Policy
+- Azure Pipelines and GitHub Actions run the policy validation step
+
+### Fixed
+- GitHub Actions workflow indentation and execution order
+- Documentation validation paths aligned to repo root
+
 ## [1.0.1] - 2026-01-09
 
 ### Added
@@ -117,7 +132,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Summary
 
-### Current Version: 1.0.1
+### Current Version: 1.0.2
 
 | Category | Count |
 |----------|-------|

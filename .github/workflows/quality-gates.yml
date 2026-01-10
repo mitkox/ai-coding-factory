@@ -25,6 +25,7 @@ jobs:
         run: |
           chmod +x scripts/validate-project.sh
           chmod +x scripts/validate-documentation.sh
+          chmod +x scripts/validate-rnd-policy.sh
           chmod +x scripts/scaffold-and-verify.sh
 
       - name: Validate repository structure
@@ -33,22 +34,25 @@ jobs:
       - name: Validate documentation presence
         run: ./scripts/validate-documentation.sh
 
-- name: Traceability commit check
-  run: |
-    if [[ "${{ github.event_name }}" == "pull_request" ]]; then
-      git fetch origin "${{ github.base_ref }}" --depth=1 || exit 1
-      RANGE="origin/${{ github.base_ref }}..HEAD"
-    else
-      if [[ -z "${{ github.event.before }}" || "${{ github.event.before }}" == "0000000000000000000000000000000000000000" ]]; then
-        echo "Warning: Invalid event.before. Skipping traceability check."
-        exit 0
-      fi
-      RANGE="${{ github.event.before }}..${{ github.sha }}"
-    fi
-    python3 scripts/traceability/traceability.py validate \
-      --stories-dir artifacts/stories \
-      --tests-root templates/clean-architecture-solution/tests \
-      --commit-range "$RANGE"
+      - name: Validate Corporate R&D Policy artifacts
+        run: ./scripts/validate-rnd-policy.sh
+
+      - name: Traceability commit check
+        run: |
+          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+            git fetch origin "${{ github.base_ref }}" --depth=1 || exit 1
+            RANGE="origin/${{ github.base_ref }}..HEAD"
+          else
+            if [[ -z "${{ github.event.before }}" || "${{ github.event.before }}" == "0000000000000000000000000000000000000000" ]]; then
+              echo "Warning: Invalid event.before. Skipping traceability check."
+              exit 0
+            fi
+            RANGE="${{ github.event.before }}..${{ github.sha }}"
+          fi
+          python3 scripts/traceability/traceability.py validate \
+            --stories-dir artifacts/stories \
+            --tests-root templates/clean-architecture-solution/tests \
+            --commit-range "$RANGE"
 
       - name: Scaffold and verify template
         run: ./scripts/scaffold-and-verify.sh

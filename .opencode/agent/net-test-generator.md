@@ -103,6 +103,11 @@ public async Task CreateProduct_WhenValid_ReturnsCreated()
 }
 ```
 
+## Corporate R&D Policy (Mandatory)
+- Follow `CORPORATE_RND_POLICY.md` as the authoritative policy.
+- Refuse to proceed on policy violations or missing required artifacts; use the exception process.
+- Complete policy self-checks relevant to your stage before reporting done.
+
 ## Workflow
 
 1. Analyze code to be tested

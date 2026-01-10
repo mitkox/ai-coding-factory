@@ -66,6 +66,7 @@ ai-coding-factory/
 
 ## Governance and Traceability
 
+- Corporate R&D Development Policy (authoritative): `CORPORATE_RND_POLICY.md`
 - Governance policy: `docs/governance/GOVERNANCE.md`
 - Traceability model: `docs/traceability/TRACEABILITY.md`
 - Scrum Team as Code: `docs/agile/SCRUM-TEAM-AS-CODE.md`
@@ -143,6 +144,7 @@ Additional checks:
 ```bash
 ./scripts/validate-project.sh
 ./scripts/validate-documentation.sh
+./scripts/validate-rnd-policy.sh
 python3 scripts/traceability/traceability.py validate --commit-range origin/main..HEAD
 ```
 

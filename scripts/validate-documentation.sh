@@ -15,17 +15,16 @@ check_file() {
 
 echo "📄 Validating required documentation..."
 
+check_file "CORPORATE_RND_POLICY.md"
 check_file "docs/governance/GOVERNANCE.md"
 check_file "docs/traceability/TRACEABILITY.md"
 check_file "docs/agile/SCRUM-TEAM-AS-CODE.md"
 check_file "docs/testing/TESTING-STRATEGY.md"
 check_file "docs/documentation/DOCUMENTATION-REQUIREMENTS.md"
-
 check_file "templates/clean-architecture-solution/docs/architecture/architecture.md"
 check_file "templates/clean-architecture-solution/docs/modules/modules.md"
 check_file "templates/clean-architecture-solution/docs/api/openapi.md"
 check_file "templates/clean-architecture-solution/docs/operations/deployment.md"
-
 check_file "templates/microservice-template/docs/architecture/architecture.md"
 check_file "templates/microservice-template/docs/modules/modules.md"
 check_file "templates/microservice-template/docs/api/openapi.md"

@@ -26,6 +26,7 @@ steps:
   - script: |
       chmod +x scripts/validate-project.sh
       chmod +x scripts/validate-documentation.sh
+      chmod +x scripts/validate-rnd-policy.sh
       chmod +x scripts/scaffold-and-verify.sh
     displayName: "Make scripts executable"
 
@@ -34,6 +35,9 @@ steps:
 
   - script: ./scripts/validate-documentation.sh
     displayName: "Validate documentation presence"
+
+  - script: ./scripts/validate-rnd-policy.sh
+    displayName: "Validate Corporate R&D Policy artifacts"
 
   - script: |
       python3 scripts/traceability/traceability.py validate \
